@@ -41,14 +41,14 @@ class TestLLMResponse(unittest.TestCase):
         self.assertFalse(classified_as_music_answer)
 
     """
-        The variable returned from the lab function should be an langchain AI response. If this test
+        The variable returned from the lab function should be a dict. If this test
         fails, then the AI message request either failed, or you have not properly configured the lab function
-        to return the result of the LLM chat.
+        to return the result of the LLM chain invocation.
         """
 
     def test_lab_ai_response(self):
-        result = lab()
-        self.assertIsInstance(result, langchain_core.messages.ai.AIMessage)
+        result = lab("hello")
+        self.assertIsInstance(result, dict)
 
     """
     The agent you've defined for the lab should accept answers according to the

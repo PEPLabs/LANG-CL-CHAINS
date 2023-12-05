@@ -36,4 +36,4 @@ Test cases will verify if the resulting message only creates relevant music resp
 prompt2 = None
 music_chain = None
 def lab(user_input):
-    return "todo"
+    return sports_chain(user_input)
