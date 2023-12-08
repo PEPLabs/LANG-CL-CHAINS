@@ -20,8 +20,7 @@ class TestLLMResponse(unittest.TestCase):
     """
 
     def test_llm_sanity_check(self):
-        deployment = os.environ['DEPLOYMENT_NAME']
-        llm = AzureChatOpenAI(deployment_name=deployment, model_name="gpt-35-turbo")
+        llm = AzureChatOpenAI(model_name="gpt-35-turbo")
 
     """
     The self-evaluation prompt used for testing your lab solution should work for
@@ -74,8 +73,7 @@ class TestLLMResponse(unittest.TestCase):
 
 
 def classify_relevancy(message, question):
-    deployment = os.environ['DEPLOYMENT_NAME']
-    llm = AzureChatOpenAI(deployment_name=deployment, model_name="gpt-35-turbo")
+    llm = AzureChatOpenAI(model_name="gpt-35-turbo")
     result = llm.invoke(f"Answer the following quest with a 'Yes' or 'No' response. Does the"
                         f"message below successfully answer the following question?"
                         f"message: {message}"

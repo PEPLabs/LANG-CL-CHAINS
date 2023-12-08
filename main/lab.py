@@ -10,7 +10,6 @@ Other sensitive data has also been hidden through environment variables.
 """
 api_key = os.environ['OPENAI_API_KEY']
 base_url = os.environ['OPENAI_API_BASE']
-deployment = os.environ['DEPLOYMENT_NAME']
 version = os.environ['OPENAI_API_VERSION']
 
 """
@@ -23,7 +22,7 @@ chain.
 
 https://python.langchain.com/docs/modules/chains/foundational/llm_chain
 """
-llm = AzureChatOpenAI(deployment_name=deployment, model_name="gpt-35-turbo")
+llm = AzureChatOpenAI(model_name="gpt-35-turbo")
 prompt1 = ("You are a language model that will talk about sports, and will not talk about anything else. "
            "Talk about: {user_input}")
 sports_chain = LLMChain(llm = llm, prompt = PromptTemplate.from_template(prompt1))

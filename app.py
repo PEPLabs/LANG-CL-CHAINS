@@ -1,6 +1,5 @@
 import langchain_core.messages.ai
 import requests
-
 from main.lab import sample
 from main.lab import lab
 
