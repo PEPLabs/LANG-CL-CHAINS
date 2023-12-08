@@ -10,7 +10,6 @@ Other sensitive data has also been hidden through environment variables.
 """
 api_key = os.environ['OPENAI_API_KEY']
 base_url = os.environ['OPENAI_API_BASE']
-# deployment = os.environ['DEPLOYMENT_NAME']
 version = os.environ['OPENAI_API_VERSION']
 
 """
@@ -33,8 +32,7 @@ def sample(user_input):
 TODO: create a complimentary LLMChain that will talk about music, and will refuse all other prompt attempts.
 Test cases will verify if the resulting message only creates relevant music responses.
 """
-prompt2 = ("You are a language model that will talk about music, and will not talk about anything else. "
-           "Talk about: {user_input}")
-music_chain = LLMChain(llm = llm, prompt = PromptTemplate.from_template(prompt2))
+prompt2 = None
+music_chain = None
 def lab(user_input):
     return sports_chain(user_input)
