@@ -3,13 +3,11 @@ This file will contain test cases for the automatic evaluation of your
 solution in main/lab.py. You should not modify the code in this file. You should
 also manually test your solution by running main/app.py.
 """
-import os
 import unittest
 
-import langchain_core.messages.ai
 from langchain.chat_models import AzureChatOpenAI
-from main.lab import lab
-from main.lab import sample
+from src.main.lab import lab
+from src.main.lab import sample
 
 
 class TestLLMResponse(unittest.TestCase):
