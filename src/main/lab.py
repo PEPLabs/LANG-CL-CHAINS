@@ -1,16 +1,8 @@
 import os
 
 from langchain.chains import LLMChain
-from langchain.chat_models import AzureChatOpenAI
+from langchain_community.llms.huggingface_endpoint import HuggingFaceEndpoint
 from langchain_core.prompts import PromptTemplate
-
-"""
-All requests to the LLM require some form of a key.
-Other sensitive data has also been hidden through environment variables.
-"""
-api_key = os.environ['OPENAI_API_KEY']
-base_url = os.environ['OPENAI_API_BASE']
-version = os.environ['OPENAI_API_VERSION']
 
 """
 Next, we will be working on producing LLM chains. A RAG application will feature multiple
@@ -22,17 +14,29 @@ chain.
 
 https://python.langchain.com/docs/modules/chains/foundational/llm_chain
 """
-llm = AzureChatOpenAI(model_name="gpt-35-turbo")
+llm = HuggingFaceEndpoint(
+    endpoint_url=os.environ['LLM_ENDPOINT'],
+    task="text2text-generation",
+    model_kwargs={
+        "max_new_tokens": 200
+    }
+)
 prompt1 = ("You are a language model that will talk about sports, and will not talk about anything else. "
            "Talk about: {user_input}")
-sports_chain = LLMChain(llm = llm, prompt = PromptTemplate.from_template(prompt1))
+sports_chain = LLMChain(llm=llm, prompt=PromptTemplate.from_template(prompt1))
+
+
 def sample(user_input):
     return sports_chain(user_input)
+
+
 """
 TODO: create a complimentary LLMChain that will talk about music, and will refuse all other prompt attempts.
 Test cases will verify if the resulting message only creates relevant music responses.
 """
 prompt2 = None
 music_chain = None
+
+
 def lab(user_input):
-    return sports_chain(user_input)
+    return music_chain(user_input)
