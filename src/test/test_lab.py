@@ -6,7 +6,6 @@ also manually test your solution by running main/app.py.
 import os
 import unittest
 
-from langchain.chat_models import AzureChatOpenAI
 from langchain_community.chat_models import ChatHuggingFace
 from langchain_community.llms.huggingface_endpoint import HuggingFaceEndpoint
 from langchain_core.outputs import LLMResult
