@@ -15,11 +15,7 @@ def main():
     print("Now let's test the chain you've built, which should only accept music prompts.")
     user_input = input("Enter some text here to prompt the music chain to talk about music:")
     result = lab(user_input)
-    if type(result) is langchain_core.messages.ai.AIMessage:
-        print(result)
-    else:
-        print("the lab() function did not produce an AI message result.")
-
+    print(result)
 
 if __name__ == '__main__':
     main()
